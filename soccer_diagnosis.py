@@ -632,7 +632,7 @@ if st.session_state.finished:
     st.markdown(
         f"""
         <div class="result-card">
-            <div class="result-icon">{result["icon"]}</div>
+            <div class="result-icon">{result["icon","⚽"]}</div>
             <div class="result-kicker">YOUR RESULT</div>
             <div class="result-title">{result["name"]}</div>
             <div class="result-description">{result["description"]}</div>
