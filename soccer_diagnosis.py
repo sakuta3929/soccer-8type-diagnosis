@@ -12,6 +12,12 @@ st.set_page_config(
 )
 
 #後でGoogleスプレッドシートの設定
+SHEET_LOGGING_ENABLED = True
+
+try:
+    sheet_url = st.secrets["sheet_url"] if SHEET_LOGGING_ENABLED else ""
+except (KeyError, FileNotFoundError):
+    sheet_url = ""
 
 # -------------------------------------
 # デザイン
