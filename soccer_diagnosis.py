@@ -614,7 +614,7 @@ if st.session_state.finished:
     result_key = winners[0]
     result = type_results[result_key]
 
-    # Googleスプレッドシートへの記録（必要な場合のみ）
+    # Googleスプレッドシートへの記録
     if (
         SHEET_LOGGING_ENABLED
         and sheet_url
