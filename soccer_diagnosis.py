@@ -524,7 +524,7 @@ if "sent_name" not in st.session_state:
 # 名前は必須
 name = st.text_input("お名前を入力して下さい。", placeholder="例：ゆうた", key="name_input")
 
-if not name():
+if not name:
     st.info("⚠　診断を始めるには、お名前を入力してください。")
 
 # -------------------------------------
