@@ -583,7 +583,7 @@ if st.session_state.started and not st.session_state.finished:
         "いちばん近いものを選んでね！",
         options=answer_labels,
         index=None,
-        key=f"answer_{st.session_state.question_index}",
+        key=f"answer_{st.session_state.current_question}",
     )
     selected_answer = next(a for a in q["answers"] if a["label"] == selected_label)
 
