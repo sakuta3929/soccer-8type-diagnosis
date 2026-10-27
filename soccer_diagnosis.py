@@ -252,11 +252,13 @@ type_results = {
         "name": "感情ダダ漏れ人間",
         "description": "全力で楽しみ、全力で悔しむ。\n\n",
         "好きなものへの熱量が高く、気持ちが表情や行動に出やすいタイプ周りまで巻き込むエネルギーの持ち主！"
-        "strengths": ["・情熱があり、行動力も抜群\n\n",
-        "・喜びや感謝を素直に表現できる\n\n",
-        "・周囲を盛り上げ、チームの士気を高められる"],
-        "weeknesses": ["・感情が先走って、冷静さ失いがち\n\n"
-        "・悔しいことを引きずりやすい\n\n"
+        "strengths": [
+            "・情熱があり、行動力も抜群\n\n",
+            "・喜びや感謝を素直に表現できる\n\n",
+            "・周囲を盛り上げ、チームの士気を高められる"
+        ],
+        "weeknesses": ["・感情が先走って、冷静さ失いがち\n\n",
+        "・悔しいことを引きずりやすい\n\n",
         "・テンションの差が周りを驚かせることも"],
         "compatible": ["「Ｅ・Ｈ」\n\n"
         "Ｅが一緒に盛り上がってくれて、Ｈが程よく力を抜かしてくれる。"
@@ -589,6 +591,8 @@ if st.session_state.started and not st.session_state.finished:
         (a for a in q["answers"] if a["label"] == selected_label),
         None
     )
+    st.write("選択した回答:", selected_label)
+    st.write("取得した回答:", selected_answer)
 
     previous_col, next_col = st.columns(2)
     with previous_col:
