@@ -603,7 +603,7 @@ if st.session_state.started and not st.session_state.finished:
     with next_col:
         if i < len(questions) - 1:
             if st.button("次の質問へ →", key=f"next_{i}"):
-                if selected_answer is not None:
+                if selected_answer is None:
                     st.warning("回答を選んでね！")
                 else:
                     st.session_state.user_answers[i] = selected_answer
@@ -611,7 +611,7 @@ if st.session_state.started and not st.session_state.finished:
                     st.rerun()
         else:
             if st.button("診断結果を見る ✨", key="finish_button"):
-                if selected_answer is not None:
+                if selected_answer is None:
                     st.warning("回答を選んでね！")
                 else:
                     st.session_state.user_answers[i] = selected_answer
