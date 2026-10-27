@@ -591,8 +591,6 @@ if st.session_state.started and not st.session_state.finished:
         (a for a in q["answers"] if a["label"] == selected_label),
         None
     )
-    st.write("選択した回答:", selected_label)
-    st.write("取得した回答:", selected_answer)
 
     previous_col, next_col = st.columns(2)
     with previous_col:
