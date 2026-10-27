@@ -26,20 +26,19 @@ except (KeyError, FileNotFoundError):
 st.markdown("""
 <style>
 :root {
-    --orange: #F29A55;
-    --orange-soft: #F8C99F;
-    --orange-pale: #FFF0DF;
-    --cream: #FFF9F1;
-    --ink: #65452F;
+    --orange: #FF6B00;
+    --orange-soft: #FFB347;
+    --orange-pale: #FFF0D9;
+    --cream: #FFFCF5;
+    --ink: #603719;
     --muted: #9A7961;
-    --line: #F2DCC7;
+    --line: #FFD0A3;
 }
 
 .stApp {
     background:
-        radial-gradient(circle at 8% 5%, rgba(255, 207, 157, .55), transparent 25%),
-        radial-gradient(circle at 95% 32%, rgba(255, 224, 190, .55), transparent 27%),
-        linear-gradient(180deg, #FFE8D0 0%, #FFF8EF 58%, #FFF0DF 100%);
+        radial-gradient(circle at 10% 5%, #FFB52E 0%, transparent 30%),
+        linear-gradient(180deg, #FF7A00 0%, #FF8C19 45%, #FFB347 100%);
     color: var(--ink);
 }
 
@@ -237,7 +236,7 @@ div[data-testid="stProgressBar"] > div > div {
 
 st.markdown("""
 <div class="hero">
-    <div class="hero-icon">🍊 ✦</div>
+    <div class="hero-icon">⚽ ✦</div>
     <div class="hero-kicker">YOUR PERSONALITY CHECK</div>
     <div class="hero-title">タイプ診断</div>
     <div class="hero-subtitle">いくつかの質問から、あなたのタイプを見つけます。</div>
@@ -251,10 +250,10 @@ st.markdown("""
 type_results = {
     "A": {
         "name": "感情ダダ漏れ人間",
-        "description": "全力で楽しみ、全力で悔しむ。\n\n"
-        "好きなものへの熱量が高く、気持ちが表情や行動に出やすいタイプ周りまで巻き込むエネルギーの持ち主！\n\n",
-        "strengths": ["・情熱があり、行動力も抜群\n\n"
-        "・喜びや感謝を素直に表現できる\n\n"
+        "description": "全力で楽しみ、全力で悔しむ。\n\n",
+        "好きなものへの熱量が高く、気持ちが表情や行動に出やすいタイプ周りまで巻き込むエネルギーの持ち主！"
+        "strengths": ["・情熱があり、行動力も抜群\n\n",
+        "・喜びや感謝を素直に表現できる\n\n",
         "・周囲を盛り上げ、チームの士気を高められる"],
         "weeknesses": ["・感情が先走って、冷静さ失いがち\n\n"
         "・悔しいことを引きずりやすい\n\n"
@@ -582,9 +581,9 @@ if st.session_state.started and not st.session_state.finished:
 
     selected_label = st.radio(
         "いちばん近いものを選んでね！",
-        answer_labels,
-        index=default_index,
-        key=f"answer_{i}",
+        options=answer_labels,
+        index=None,
+        key=f"answer_{st.settion_state.question_index}",
     )
     selected_answer = next(a for a in q["answers"] if a["label"] == selected_label)
 
@@ -656,7 +655,7 @@ if st.session_state.finished:
         unsafe_allow_html=True,
     )
     st.markdown(
-        f'<div class="info-card"><div class="info-heading">🌧️ 短所・気をつけたいところ</div>{ "　・　".join(result["weaknesses"]) }</div>',
+        f'<div class="info-card"><div class="info-heading">🌧️ 短所・気をつけたいところ</div>{ "　・　".join(result["weeknesses"]) }</div>',
         unsafe_allow_html=True,
     )
     st.markdown(
